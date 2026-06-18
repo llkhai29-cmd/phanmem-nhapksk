@@ -1,0 +1,109 @@
+:root {
+  /* Healthcare Theme Colors */
+  --primary: #0f766e; /* Medical Teal */
+  --primary-hover: #0d9488;
+  --bg: #f0fdfa; /* Very light teal tint */
+  --bg-panel: #ffffff;
+  --text: #334155;
+  --text-light: #64748b;
+  --border: #cbd5e1;
+  --danger: #e11d48;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F8FAFC;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+    font-size: 20px;
+}
+/* Custom scrollbar for clinical density */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+.form-row {
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    margin-bottom: 8px;
+    padding: 4px 0;
+}
+.form-label {
+    width: 260px; /* Wider to accommodate long medical terms */
+    flex-shrink: 0;
+    font-size: 13px;
+    line-height: 1.4;
+    padding-right: 16px;
+    color: var(--on-surface-variant);
+}
+.input-standard {
+    height: 32px;
+    border: 1px solid #E2E8F0;
+    border-radius: 0.125rem;
+    padding: 0 8px;
+    font-size: 13px;
+    width: 100%;
+    background-color: #FFFFFF;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.input-standard:focus {
+    outline: none;
+    border-color: #004ac6;
+    box-shadow: 0 0 0 2px rgba(0, 74, 198, 0.1);
+}
+.btn-action {
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    gap: 4px;
+    font-weight: 600;
+    font-size: 12px;
+    border-radius: 0.125rem;
+    transition: all 0.1s ease-in-out;
+}
+.btn-action:active { transform: scale(0.97); }
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+th {
+  background: #f5f5f5;
+  font-weight: 500;
+  position: sticky;
+  top: 0;
+  border-right: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+td {
+  padding: 0.4rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--bg);
+}
+
+tbody tr:hover {
+  background: #e0f2fe;
+}
