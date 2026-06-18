@@ -156,6 +156,203 @@ function App() {
     XLSX.writeFile(wb, `${selectedGroup}_Export.xlsx`);
   };
 
+  const handlePrintReport = () => {
+    let dataToPrint = formData;
+    
+    // Nếu form hiện tại trống nhưng đang chọn một dòng ở dưới, lấy dữ liệu dòng đó
+    if (Object.keys(dataToPrint).length === 0 && selectedRecordId) {
+      const rec = records.find(r => r.id === selectedRecordId);
+      if (rec) {
+        dataToPrint = rec;
+      }
+    }
+    
+    if (!dataToPrint || Object.keys(dataToPrint).length === 0) {
+      alert("Vui lòng chọn hoặc điền thông tin bản ghi để in báo cáo!");
+      return;
+    }
+
+    const printWindow = window.open('', '_blank', 'width=900,height=900');
+    if (!printWindow) {
+      alert("Không thể mở cửa sổ in. Vui lòng cho phép trình duyệt mở popup!");
+      return;
+    }
+    
+    // Nhóm các trường theo Tab và Section
+    const groupedData = {};
+    allFields.forEach(f => {
+      const [tab, ...rest] = f.path;
+      const val = dataToPrint[f.path.join('||')] || "";
+      if (!groupedData[tab]) {
+        groupedData[tab] = [];
+      }
+      groupedData[tab].push({ name: f.name, value: val, path: rest });
+    });
+
+    let sectionsHtml = "";
+    Object.entries(groupedData).forEach(([tabName, fields]) => {
+      sectionsHtml += `
+        <div class="print-section">
+          <h3>${tabName}</h3>
+          <div class="print-grid">
+            ${fields.map(f => `
+              <div class="print-item">
+                <span class="print-label">${f.path.length > 0 ? f.path.join(' - ') + ': ' : ''}${f.name}:</span>
+                <span class="print-value">${f.value || '................................'}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    });
+
+    const htmlContent = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="utf-8">
+        <title>Phiếu Khám Sức Khỏe - ${selectedGroup}</title>
+        <style>
+          @media print {
+            @page { size: A4; margin: 15mm; }
+            body { font-family: "Times New Roman", Times, serif; font-size: 12pt; line-height: 1.4; color: #000; background: #fff; }
+            .no-print { display: none; }
+          }
+          body {
+            font-family: "Times New Roman", Times, serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #000;
+            background: #fff;
+          }
+          .header-table {
+            width: 100%;
+            margin-bottom: 20px;
+            border: none;
+          }
+          .header-table td {
+            border: none;
+            vertical-align: top;
+            text-align: center;
+          }
+          .header-title {
+            font-weight: bold;
+            text-transform: uppercase;
+          }
+          .title-section {
+            text-align: center;
+            margin: 20px 0;
+          }
+          .title-section h2 {
+            margin: 0;
+            font-size: 16pt;
+            font-weight: bold;
+            text-transform: uppercase;
+          }
+          .title-section p {
+            margin: 5px 0 0 0;
+            font-style: italic;
+          }
+          .print-section {
+            margin-top: 15px;
+            page-break-inside: avoid;
+          }
+          .print-section h3 {
+            margin: 5px 0;
+            font-size: 13pt;
+            border-bottom: 1.5px solid #000;
+            padding-bottom: 2px;
+            text-transform: uppercase;
+            font-weight: bold;
+          }
+          .print-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 15px;
+            margin-top: 5px;
+          }
+          .print-item {
+            font-size: 11pt;
+            display: flex;
+            align-items: baseline;
+          }
+          .print-label {
+            font-weight: bold;
+            margin-right: 5px;
+            white-space: nowrap;
+          }
+          .print-value {
+            border-bottom: 1px dotted #000;
+            flex-grow: 1;
+            padding-left: 3px;
+            word-break: break-all;
+          }
+          .footer-section {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            page-break-inside: avoid;
+          }
+          .footer-col {
+            text-align: center;
+            width: 45%;
+          }
+          .footer-col .signature-space {
+            margin-top: 70px;
+          }
+        </style>
+      </head>
+      <body>
+        <table class="header-table">
+          <tr>
+            <td style="width: 45%">
+              <div class="header-title" style="font-size: 11pt;">SỞ Y TẾ TỈNH/THÀNH PHỐ</div>
+              <div style="font-weight: bold; font-size: 11pt;">CƠ SỞ KHÁM CHỮA BỆNH</div>
+              <div>***</div>
+            </td>
+            <td style="width: 55%">
+              <div class="header-title" style="font-size: 11pt;">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+              <div style="font-weight: bold; text-decoration: underline; font-size: 10pt;">Độc lập - Tự do - Hạnh phúc</div>
+            </td>
+          </tr>
+        </table>
+
+        <div class="title-section">
+          <h2>PHIẾU KHÁM SỨC KHỎE</h2>
+          <p>Đối tượng: <strong>${selectedGroup}</strong></p>
+        </div>
+
+        ${sectionsHtml}
+
+        <div class="footer-section">
+          <div class="footer-col">
+            <div style="font-style: italic;">..., ngày ... tháng ... năm 20...</div>
+            <div style="font-weight: bold; margin-top: 5px; font-size: 11pt;">NGƯỜI ĐƯỢC KHÁM KÝ TÊN</div>
+            <div style="font-size: 9pt; color: #555;">(Ký và ghi rõ họ tên)</div>
+            <div class="signature-space"></div>
+          </div>
+          <div class="footer-col">
+            <div style="font-style: italic;">..., ngày ... tháng ... năm 20...</div>
+            <div style="font-weight: bold; margin-top: 5px; font-size: 11pt;">BÁC SĨ KẾT LUẬN</div>
+            <div style="font-size: 9pt; color: #555;">(Ký, ghi rõ họ tên và đóng dấu)</div>
+            <div class="signature-space"></div>
+          </div>
+        </div>
+
+        <script>
+          window.onload = function() {
+            window.print();
+          };
+        </script>
+      </body>
+      </html>
+    `;
+
+    printWindow.document.write(htmlContent);
+    printWindow.document.close();
+  };
+
   const loadRecordToForm = (rec) => {
     setFormData(rec);
     setSelectedRecordId(rec.id);
@@ -325,9 +522,12 @@ function App() {
                     </button>
                 </div>
             </div>
-            <div>
+            <div className="flex gap-2">
                 <button className="btn-action bg-secondary text-on-secondary hover:opacity-90" onClick={exportExcel}>
                     <span className="material-symbols-outlined">download</span> Xuất Excel
+                </button>
+                <button className="btn-action bg-primary text-on-primary hover:opacity-90" onClick={handlePrintReport}>
+                    <span className="material-symbols-outlined">print</span> In báo cáo
                 </button>
             </div>
         </div>
