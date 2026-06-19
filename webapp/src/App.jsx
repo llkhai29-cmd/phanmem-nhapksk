@@ -156,11 +156,11 @@ function App() {
     XLSX.writeFile(wb, `${selectedGroup}_Export.xlsx`);
   };
 
-  const handlePrintReport = () => {
-    let dataToPrint = formData;
+  const handlePrintReport = (specificRecord = null) => {
+    let dataToPrint = specificRecord || formData;
     
     // Nếu form hiện tại trống nhưng đang chọn một dòng ở dưới, lấy dữ liệu dòng đó
-    if (Object.keys(dataToPrint).length === 0 && selectedRecordId) {
+    if (!specificRecord && Object.keys(dataToPrint).length === 0 && selectedRecordId) {
       const rec = records.find(r => r.id === selectedRecordId);
       if (rec) {
         dataToPrint = rec;
@@ -318,7 +318,7 @@ function App() {
           </tr>
         </table>
 
-        <div class="title-section">
+         <div class="title-section">
           <h2>PHIẾU KHÁM SỨC KHỎE</h2>
           <p>Đối tượng: <strong>${selectedGroup}</strong></p>
         </div>
@@ -502,7 +502,7 @@ function App() {
                     </select>
                 </div>
                 <div className="flex items-center gap-2">
-                    <button className="btn-action bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container" onClick={handleSave}>
+                    <button className="btn-action bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container" onClick={() => handleSave()}>
                         <span className="material-symbols-outlined">save</span> Lưu bản ghi
                     </button>
                     <button className="btn-action bg-white border border-primary text-primary hover:bg-primary-fixed" onClick={handleUpdate}>
@@ -526,7 +526,7 @@ function App() {
                 <button className="btn-action bg-secondary text-on-secondary hover:opacity-90" onClick={exportExcel}>
                     <span className="material-symbols-outlined">download</span> Xuất Excel
                 </button>
-                <button className="btn-action bg-primary text-on-primary hover:opacity-90" onClick={handlePrintReport}>
+                <button className="btn-action bg-primary text-on-primary hover:opacity-90" onClick={() => handlePrintReport()}>
                     <span className="material-symbols-outlined">print</span> In báo cáo
                 </button>
             </div>
@@ -602,10 +602,23 @@ function App() {
                     />
                 </div>
             </div>
-            <button className="btn-action bg-primary-fixed-dim text-on-primary-fixed hover:bg-primary-fixed" onClick={handleLoadSelectedToForm}>
-                <span className="material-symbols-outlined">keyboard_double_arrow_up</span>
-                Nạp dòng vào form
-            </button>
+            <div className="flex gap-2">
+                <button className="btn-action bg-primary-fixed-dim text-on-primary-fixed hover:bg-primary-fixed" onClick={handleLoadSelectedToForm}>
+                    <span className="material-symbols-outlined">keyboard_double_arrow_up</span>
+                    Nạp dòng vào form
+                </button>
+                <button className="btn-action bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary" onClick={() => {
+                    const rec = records.find(r => r.id === selectedRecordId);
+                    if (rec) {
+                      handlePrintReport(rec);
+                    } else {
+                      alert("Vui lòng chọn một dòng ở bảng dưới để in!");
+                    }
+                }}>
+                    <span className="material-symbols-outlined">print</span>
+                    In dòng chọn
+                </button>
+            </div>
         </div>
 
         <div className="flex-1 overflow-auto relative">
@@ -617,6 +630,7 @@ function App() {
                             <th key={i} className="px-3 text-label-md border-r border-outline-variant">{f.name}</th>
                         ))}
                         {allFields.length > 15 && <th className="px-3 text-label-md">...</th>}
+                        <th className="px-3 text-label-md text-center w-24">Thao tác</th>
                     </tr>
                 </thead>
                 <tbody className="text-body-sm">
@@ -632,6 +646,18 @@ function App() {
                                 <td key={i} className="px-3 border-r border-outline-variant">{rec[f.path.join('||')] || ""}</td>
                             ))}
                             {allFields.length > 15 && <td className="px-3">...</td>}
+                            <td className="px-3 text-center border-l border-outline-variant">
+                                <button 
+                                    className="p-1 hover:bg-surface-container-high rounded text-primary inline-flex items-center"
+                                    title="In báo cáo"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        handlePrintReport(rec);
+                                    }}
+                                >
+                                    <span className="material-symbols-outlined text-sm">print</span>
+                                </button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
