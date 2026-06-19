@@ -1,7 +1,18 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import * as XLSX from 'xlsx';
 import schemaData from './schema.json';
 import './index.css';
+import { db } from './firebase';
+import { 
+  collection, 
+  addDoc, 
+  updateDoc, 
+  deleteDoc, 
+  doc, 
+  onSnapshot,
+  query,
+  orderBy
+} from 'firebase/firestore';
 
 const getFields = (obj, path = []) => {
   let fields = [];
@@ -31,36 +42,81 @@ function App() {
   
   const allFields = useMemo(() => getFields(schema), [schema]);
 
+  // Lắng nghe dữ liệu realtime từ Firestore của nhóm đối tượng đã chọn
+  useEffect(() => {
+    if (!selectedGroup) return;
+    
+    const q = query(
+      collection(db, selectedGroup),
+      orderBy("createdAt", "desc")
+    );
+    
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const docsData = [];
+      snapshot.forEach((doc) => {
+        docsData.push({ id: doc.id, ...doc.data() });
+      });
+      setRecords(docsData);
+    }, (error) => {
+      console.error("Lỗi khi tải dữ liệu từ Firestore:", error);
+    });
+    
+    return () => unsubscribe();
+  }, [selectedGroup]);
+
   const handleInputChange = (fieldPath, value) => {
     const fieldKey = fieldPath.join('||');
     setFormData(prev => ({ ...prev, [fieldKey]: value }));
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (Object.keys(formData).length === 0) return;
-    setRecords([...records, { id: Date.now(), ...formData }]);
-    setFormData({});
-    setSelectedRecordId(null);
+    try {
+      const dataToSave = { ...formData, createdAt: Date.now() };
+      delete dataToSave.id;
+      await addDoc(collection(db, selectedGroup), dataToSave);
+      setFormData({});
+      setSelectedRecordId(null);
+      alert("Lưu bản ghi lên Firestore đám mây thành công!");
+    } catch (error) {
+      console.error("Lỗi khi lưu:", error);
+      alert("Không thể lưu bản ghi. Vui lòng kiểm tra cấu hình Firebase!");
+    }
   };
 
-  const handleUpdate = () => {
+  const handleUpdate = async () => {
     if (!selectedRecordId) {
       alert("Vui lòng chọn một dòng để cập nhật!");
       return;
     }
-    setRecords(records.map(rec => rec.id === selectedRecordId ? { ...formData, id: selectedRecordId } : rec));
-    alert("Đã cập nhật dòng chọn thành công!");
+    try {
+      const docRef = doc(db, selectedGroup, selectedRecordId);
+      const dataToUpdate = { ...formData };
+      delete dataToUpdate.id;
+      await updateDoc(docRef, dataToUpdate);
+      alert("Đã cập nhật dòng chọn thành công!");
+    } catch (error) {
+      console.error("Lỗi khi cập nhật:", error);
+      alert("Không thể cập nhật bản ghi. Vui lòng kiểm tra cấu hình Firebase!");
+    }
   };
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
     if (!selectedRecordId) {
       alert("Vui lòng chọn một dòng để xóa!");
       return;
     }
     if (window.confirm("Bạn có chắc chắn muốn xóa dòng này không?")) {
-      setRecords(records.filter(rec => rec.id !== selectedRecordId));
-      if (formData.id === selectedRecordId) setFormData({});
-      setSelectedRecordId(null);
+      try {
+        const docRef = doc(db, selectedGroup, selectedRecordId);
+        await deleteDoc(docRef);
+        if (formData.id === selectedRecordId) setFormData({});
+        setSelectedRecordId(null);
+        alert("Đã xóa dòng chọn thành công!");
+      } catch (error) {
+        console.error("Lỗi khi xóa:", error);
+        alert("Không thể xóa bản ghi!");
+      }
     }
   };
 
@@ -87,12 +143,16 @@ function App() {
     const file = e.target.files[0];
     if (!file) return;
     const reader = new FileReader();
-    reader.onload = (event) => {
+    reader.onload = async (event) => {
       try {
         const json = JSON.parse(event.target.result);
         if (Array.isArray(json)) {
-          setRecords(json);
-          alert("Nạp sao lưu thành công!");
+          for (const item of json) {
+            const dataToSave = { ...item, createdAt: Date.now() };
+            delete dataToSave.id;
+            await addDoc(collection(db, selectedGroup), dataToSave);
+          }
+          alert("Nạp sao lưu và đồng bộ lên đám mây thành công!");
         } else {
           alert("File sao lưu không hợp lệ!");
         }
@@ -108,7 +168,7 @@ function App() {
     const file = e.target.files[0];
     if (!file) return;
     const reader = new FileReader();
-    reader.onload = (event) => {
+    reader.onload = async (event) => {
       try {
         const data = new Uint8Array(event.target.result);
         const workbook = XLSX.read(data, {type: 'array'});
@@ -118,22 +178,20 @@ function App() {
         
         if (json.length < 2) return;
         const headers = json[0];
-        const importedRecords = [];
         
         for (let i = 1; i < json.length; i++) {
           const row = json[i];
           if (row.length === 0) continue;
-          const rec = { id: Date.now() + i };
+          const rec = { createdAt: Date.now() + i };
           headers.forEach((h, idx) => {
             const field = allFields.find(f => f.name === h);
             if (field && row[idx] !== undefined && row[idx] !== null) {
                 rec[field.path.join('||')] = row[idx];
             }
           });
-          importedRecords.push(rec);
+          await addDoc(collection(db, selectedGroup), rec);
         }
-        setRecords(prev => [...prev, ...importedRecords]);
-        alert(`Nhập thành công ${importedRecords.length} dòng từ Excel!`);
+        alert(`Nhập thành công từ Excel và đồng bộ lên đám mây!`);
       } catch (err) {
         alert("Lỗi khi import file Excel!");
       }
