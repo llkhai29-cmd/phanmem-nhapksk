@@ -1,0 +1,565 @@
+# Danh sách đầy đủ và phân cấp các cột theo từng đối tượng/độ tuổi
+
+## 📄 KSK cho người lái xe.xlsx
+**Sheet:** Mau KSK Lai xe (QD 1551)
+
+- **Thông tin hành chính**
+  - STT
+  - Họ và tên
+  - Giới tính
+  - Ngày sinh
+  - Dân tộc
+  - CMND / CCCD / HC / Định danh công dân
+  - Ngày cấp
+  - Nơi cấp
+  - Nơi ở hiện tại
+  - Mã Tỉnh
+  - Mã Xã
+  - Đề nghị khám sức khỏe để lái xe hạng
+  - Điện thoại
+  - Nhóm máu
+  - Đối tượng khám định kỳ
+  - Nguồn kinh phí khám
+- **Thông tin chung về cơ sở khám sức khỏe**
+  - Lượt khám
+  - Mã cơ sở khám bệnh, chữa bệnh
+  - Mã cơ sở khám bệnh, chữa bệnh theo chuẩn GLN
+  - Ngày khám sức khỏe
+- **I. Tiền sử bệnh của đối tượng khám sức khỏe**
+  - **A. Tiền sử gia đình**
+    - Có ai trong gia đình mắc bệnh không
+    - Tên bệnh cụ thể khi trong gia đình có người mắc
+  - **B. Tiền sử bệnh sử bản thân**
+    - Có bệnh hay bị thương trong 5 năm qua
+    - Bệnh thần kinh hoặc bị thương ở đầu
+    - Bệnh mắt hoặc giảm thị lực (trừ đeo kính thuốc)
+    - Bệnh tai, giảm sức nghe hoặc thăng bằng
+    - Bệnh ở tim hoặc nhồi máu cơ tim, các bệnh tim mạch khác
+    - Phẫu thuật can thiệp tim mạch (thay van, bắc cầu nối, tạo hình mạch, máy tạo nhịp, đặt stent mạch, ghép tim)
+    - Tăng huyết áp
+    - Khó thở
+    - Bệnh phổi, hen, khí phế thũng, viêm phế quản mạn tính
+    - Bệnh thận, lọc máu
+    - Đái tháo đường hoặc kiểm soát tăng đường huyết
+    - Bệnh tâm thần
+    - Mất ý thức, rối loạn ý thức
+    - Ngất, chóng mặt, mệt mỏi, buồn ngủ hoặc ngất xỉu
+    - Bệnh tiêu hóa
+    - Rối loạn giấc ngủ, ngừng thở khi ngủ, ngủ rũ ban ngày, ngáy to
+    - Tai biến mạch máu não hoặc liệt
+    - Bệnh hoặc tổn thương cột sống
+    - Sử dụng rượu thường xuyên, liên tục
+    - Sử dụng ma túy và chất gây nghiện
+    - Tên bệnh cụ thể bản thân (nếu có)
+  - **C. Câu hỏi khác (nếu có)**
+    - Có đang điều trị bệnh gì không
+    - Nếu có, liệt kê các thuốc đang dùng và liều lượng
+- **II.Khám lâm sàng**
+  - **A. Tâm thần**
+    - Kết quả khám tâm thần
+  - **B. Thần kinh**
+    - Kết quả khám thần kinh
+  - **C. Mắt**
+    - Thị lực nhìn xa mắt phải không kính
+    - Thị lực nhìn xa mắt trái không kính
+    - Thị lực nhìn xa mắt phải có kính
+    - Thị lực nhìn xa mắt trái có kính
+    - Thị lực nhìn xa hai mắt không kính
+    - Thị lực nhìn xa hai mắt có kính
+    - Thị trường ngang hai mắt (mũi - thái dương)
+    - Thị trường đứng (trên - dưới)
+    - Sắc giác
+    - Các bệnh về mắt (nếu có)
+  - **D. Tai - Mũi - Họng**
+    - Thính lực tai trái nói thường (m)
+    - Thính lực tai trái nói thầm (m)
+    - Thính lực tai phải nói thường (m)
+    - Thính lực tai phải nói thầm (m)
+    - Các bệnh về tai mũi họng (nếu có)
+  - **E. Tim mạch**
+    - Mạch (lần/phút)
+    - Huyết áp (mmHg)
+  - **F. Hô hấp**
+    - Kết quả khám hô hấp
+  - **G. Cơ xương khớp**
+    - Kết quả khám cơ xương khớp
+  - **H. Nội tiết**
+    - Kết quả khám nội tiết
+- **III. Khám cận lâm sàng**
+  - **A. Xét nghiệm ma túy**
+    - Kết quả xét nghiệm ma túy
+  - **B. Sản phụ khoa**
+    - KQ khám sản phụ khoa
+    - Phân loại KQ khám sản phụ khoa
+    - Kết quả xét nghiệm nồng độ cồn
+  - **C. Xét nghiệm khác theo chỉ định bác sĩ**
+    - Kết quả xét nghiệm nồng độ cồn / huyết học / sinh hóa / X-quang / khác
+    - Kết luận xét nghiệm khác
+- **IV. Kết luận**
+  - **C. Xét nghiệm khác theo chỉ định bác sĩ**
+    - Kết luận đánh giá tình trạng sức khoẻ
+    - Kết luận bệnh
+    - Kết luận các vấn đề sức khỏe cần lưu ý
+    - Chữ ký số người kết luận
+    - Chữ ký số CSKB
+
+---
+## 📄 từ 0 đên dưới 6 tuổi.xlsx
+**Sheet:** 0 đến 6 tuổi
+
+- **Đơn vị: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .**
+  - STT
+  - I. Thông tin hành chính
+  - **A. Tiền sử sức khỏe bản thân**
+    - A.1 Sản khoa
+    - A.2 Tiền sử bệnh tật
+    - A.3 Tiêm chủng
+  - **II. Thông tin chung về cơ sở khám sức khỏe**
+    - A.3 Tiêm chủng
+  - **III. Theo dõi sức khỏe**
+    - A. Dành cho học sinh <24 tháng tuổi
+    - B. Dành cho học sinh >= 24 tháng tuổi đến < 36 tháng tuổi
+    - **C. Dành cho học sinh >= 36 tháng tuổi đến < 6 tuổi**
+      - Huyết áp
+      - Thị lực
+      - Theo dõi diễn biến bất thường về sức khỏe
+      - Xử trí
+  - **IV. Khám sức khỏe theo chuyên khoa**
+    - **Nhi khoa**
+      - Xử trí
+    - **Khám mắt**
+      - Xử trí
+    - **Tai - Mũi - Họng**
+      - Xử trí
+    - **Răng - Hàm - Mặt**
+      - Xử trí
+    - **Cơ xương khớp**
+      - Xử trí
+
+---
+## 📄 từ 6 đến dưới 18.xlsx
+**Sheet:** Duoi 18tuoi (QD 1551)
+
+- **I. THÔNG TIN HÀNH CHÍNH**
+  - STT
+  - Họ và tên
+  - Giới tính
+  - Ngày sinh
+  - Tuổi
+  - Dân tộc
+  - CMND / CCCD / HC / Định danh công dân
+  - Ngày cấp
+  - Nơi cấp
+  - Họ và tên bố, mẹ hoặc người giám hộ
+  - CMND / CCCD / HC / Định danh công dân của bố, mẹ hoặc người giám hộ
+  - Nơi ở hiện tại
+  - Mã Tỉnh
+  - Mã Xã
+  - Điện thoại
+  - Lý do khám sức khỏe
+  - Nhóm máu
+  - Đối tượng khám định kỳ
+  - Nguồn kinh phí khám
+- **II. THÔNG TIN CHUNG VỀ CƠ SỞ KHÁM SỨC KHỎE**
+  - Lượt khám
+  - Mã cơ sở khám bệnh, chữa bệnh
+  - Mã cơ sở khám bệnh, chữa bệnh theo chuẩn GLN
+  - Ngày khám sức khỏe
+- **III. TIỀN SỬ BỆNH CỦA ĐỐI TƯỢNG KHÁM SỨC KHỎE**
+  - **III.1 TIỀN SỬ  GIA ĐÌNH**
+    - Có ai trong gia đình mắc các bệnh bẩm sinh hoặc bệnh truyền nhiễm không
+    - Tên bệnh cụ thể khi trong gia đình có người mắc
+  - **III.2 TIỀN SỬ BẢN THÂN**
+    - **A. Sản khoa**
+      - Sản khoa
+      - Sản khoa không bình thường
+      - Tên bệnh gây ra sản khoa không bình thường
+    - **B. Tiêm chủng**
+      - BCG
+      - Bạch hầu, ho gà, uốn ván
+      - Sởi
+      - Bại liệt
+      - Viêm não Nhật Bản B
+      - Viêm gan B
+      - Các loại vắc xin khác
+      - Tên vắc xin khác
+    - **C. Tiền sử bệnh bản thân**
+      - Tiền sử bệnh/tật (Các bệnh bẩm sinh và mãn tính)
+      - Cụ thể tên bệnh
+      - Hiện tại có đang điều trị bệnh gì không?
+      - Cụ thể tên bệnh đang điều trị
+      - Thuốc đang sử dụng điều trị
+- **IV. KHÁM THỂ LỰC**
+  - **Chiều cao (cm)**
+    - **C. Tiền sử bệnh bản thân**
+      - Thuốc đang sử dụng điều trị
+  - **Cân nặng (kg)**
+    - **C. Tiền sử bệnh bản thân**
+      - Thuốc đang sử dụng điều trị
+  - **Chỉ số BMI**
+    - **C. Tiền sử bệnh bản thân**
+      - Thuốc đang sử dụng điều trị
+  - **Mạch (lần/phút)**
+    - **C. Tiền sử bệnh bản thân**
+      - Thuốc đang sử dụng điều trị
+  - **Huyết áp (mmHg)**
+    - **C. Tiền sử bệnh bản thân**
+      - Thuốc đang sử dụng điều trị
+- **V. KHÁM LÂM SÀNG**
+  - **A. Nhi khoa**
+    - **Tuần hoàn**
+      - Thuốc đang sử dụng điều trị
+    - **Hô hấp**
+      - Thuốc đang sử dụng điều trị
+    - **Tiêu hóa**
+      - Thuốc đang sử dụng điều trị
+    - **Thận-Tiết niệu**
+      - Thuốc đang sử dụng điều trị
+    - **Thần kinh**
+      - Thuốc đang sử dụng điều trị
+    - **Tâm thần**
+      - Thuốc đang sử dụng điều trị
+    - **Khám lâm sàng khác**
+      - Thuốc đang sử dụng điều trị
+  - **B.Mắt**
+    - **Kết quả khám thị lực không kính (mắt phải)**
+      - Thuốc đang sử dụng điều trị
+    - **Kết quả khám thị lực không kính (mắt trái)**
+      - Thuốc đang sử dụng điều trị
+    - **Kết quả khám thị lựccó kính (mắt phải)**
+      - Thuốc đang sử dụng điều trị
+    - **Kết quả khám thị lực có kính (mắt trái)**
+      - Thuốc đang sử dụng điều trị
+    - **Các bệnh về mắt (nếu có)**
+      - Thuốc đang sử dụng điều trị
+  - **C. Tai - Mũi - Họng**
+    - **Kết quả khám thính lực tai trái (nói thường)**
+      - Thuốc đang sử dụng điều trị
+    - **Kết quả khám thính lực tai trái (nói thầm)**
+      - Thuốc đang sử dụng điều trị
+    - **Kết quả khám thính lực tai phải (nói thường)**
+      - Thuốc đang sử dụng điều trị
+    - **Kết quả khám thính lực tai phải (nói thầm)**
+      - Thuốc đang sử dụng điều trị
+    - **Các bệnh về tai mũi họng (nếu có)**
+      - Thuốc đang sử dụng điều trị
+  - **D. Răng - Hàm - Mặt**
+    - **Kết quả khám hàm trên**
+      - Thuốc đang sử dụng điều trị
+    - **Kết quả khám hàm dưới**
+      - Thuốc đang sử dụng điều trị
+    - **Các bệnh về răng-hàm-mặt (nếu có)**
+      - Thuốc đang sử dụng điều trị
+- **VI. KHÁM CẬN LÂM SÀNG**
+  - **Dịch vụ cận lâm sàng**
+    - **Các bệnh về răng-hàm-mặt (nếu có)**
+      - Thuốc đang sử dụng điều trị
+  - **Tên chỉ số cận lâm sàng**
+    - **Các bệnh về răng-hàm-mặt (nếu có)**
+      - Thuốc đang sử dụng điều trị
+  - **Ghi giá trị chỉ số cận lâm sàng**
+    - **Các bệnh về răng-hàm-mặt (nếu có)**
+      - Thuốc đang sử dụng điều trị
+  - **Đơn vị đo chỉ số cận lâm sàng**
+    - **Các bệnh về răng-hàm-mặt (nếu có)**
+      - Thuốc đang sử dụng điều trị
+  - **Mô tả kết quả chỉ số cận lâm sàng**
+    - **Các bệnh về răng-hàm-mặt (nếu có)**
+      - Thuốc đang sử dụng điều trị
+  - **Kết luận chỉ số cận lâm sàng**
+    - **Các bệnh về răng-hàm-mặt (nếu có)**
+      - Thuốc đang sử dụng điều trị
+- **VII. KẾT LUẬN**
+  - **Phân loại sức khỏe**
+    - **Các bệnh về răng-hàm-mặt (nếu có)**
+      - Thuốc đang sử dụng điều trị
+  - **Kết luận bệnh**
+    - **Các bệnh về răng-hàm-mặt (nếu có)**
+      - Thuốc đang sử dụng điều trị
+  - **Các vấn đề sức khỏe cần lưu ý**
+    - **Các bệnh về răng-hàm-mặt (nếu có)**
+      - Thuốc đang sử dụng điều trị
+  - **Chữ ký số người kết luận**
+    - **Các bệnh về răng-hàm-mặt (nếu có)**
+      - Thuốc đang sử dụng điều trị
+  - **Chữ ký số CSKB**
+    - **Các bệnh về răng-hàm-mặt (nếu có)**
+      - Thuốc đang sử dụng điều trị
+
+---
+## 📄 từ 60 tuổi trỡ lên.xlsx
+**Sheet:** Du18tuoi trở lên (QD 1551)
+
+- **I. THÔNG TIN HÀNH CHÍNH**
+  - STT
+  - Họ và tên
+  - Giới tính
+  - Ngày sinh
+  - Tuổi
+  - Dân tộc
+  - CMND / CCCD / HC / Định danh công dân
+  - Ngày cấp
+  - Nơi cấp
+  - Nơi ở hiện tại
+  - Mã Tỉnh
+  - Mã Xã
+  - Điện thoại
+  - Nghề nghiệp
+  - Nơi công tác/học tập hiện tại
+  - Ngày bắt đầu vào làm việc tại đơn vị hiện nay
+  - Nghề, công việc trước đây
+  - Thời gian lam việc (năm)
+  - Thời gian lam việc (tháng)
+  - Từ ngày
+  - Đến ngày
+  - Nhóm máu
+  - Đối tượng khám định kỳ
+  - Nguồn kinh phí khám
+- **II. THÔNG TIN CHUNG VỀ CƠ SỞ KHÁM SỨC KHỎE**
+  - Lượt khám
+  - Mã cơ sở khám bệnh, chữa bệnh
+  - Mã cơ sở khám bệnh, chữa bệnh theo chuẩn GLN
+  - Ngày khám sức khỏe
+- **III. TIỀN SỬ BỆNH/ TẬT**
+  - **A. TIỀN SỬ  GIA ĐÌNH**
+    - Tiền sử bệnh, tật của gia đình
+  - **B.TIỀN SỬ BẢN THÂN**
+    - Tên bệnh tiền sử bản thân
+    - Năm phát hiện
+    - Tên bệnh nghề nghiệp
+    - Năm phát hiện bệnh nghề nghiệp
+  - **C. TIỀN SỬ SẢN PHỤ KHOA (Đối với nữ)**
+    - Bắt đầu thấy kinh nguyệt năm bao nhiêu tuổi
+    - Tính chất  kinh nguyệt
+    - Chu kỳ kinh (ngày)
+    - Lượng kinh (ngày)
+    - Đau bụng kinh
+    - Đã lập  gia đình
+    - PARA
+    - Đã từng mổ sản,   phụ khoa
+    - Số lần mổ sản, phụ khoa
+    - Ghi rõ mổ sản, phụ khoa
+    - Có đang áp dụng  BPTT không
+    - Ghi rõ BPTT đang  sử dụng
+- **IV. KHÁM THỂ LỰC**
+  - **Chiều cao (cm)**
+    - Ghi rõ BPTT đang  sử dụng
+  - **Cân nặng (kg)**
+    - Ghi rõ BPTT đang  sử dụng
+  - **Chỉ số BMI**
+    - Ghi rõ BPTT đang  sử dụng
+  - **Mạch (lần/phút)**
+    - Ghi rõ BPTT đang  sử dụng
+  - **Huyết áp**
+    - Ghi rõ BPTT đang  sử dụng
+  - **Phân loại thể lực**
+    - Ghi rõ BPTT đang  sử dụng
+- **V. KHÁM LÂM SÀNG**
+  - **A. Nội khoa**
+    - KQ Tuần hoàn
+    - Phân loại KQ Tuần hoàn
+    - KQ Hô hấp
+    - Phân loại KQ Hô hấp
+    - KQ khám Tiêu hóa
+    - Phân loại KQ khám Tiêu hóa
+    - KQ Khám Thận-Tiết niệu
+    - Phân loại KQ khám Thận-Tiết niệu
+    - KQ khám Nội tiết
+    - Phân loại KQ khám Nội tiết
+    - KQ khám Cơ - xương - khớp
+    - Phân loại KQ khám Cơ - xương - khớp
+    - KQ khám Thần kinh
+    - Phân loại KQ khám Thần kinh
+    - KQ khám Tâm thần
+    - Phân loại KQ khám Tâm thần
+  - **B. Ngoại  khoa**
+    - KQ khám ngoại khoa
+    - Phân loại KQ khám ngoại khoa
+    - KQ khám da liễu
+    - Phân loại KQ khám da liễu
+  - **C. Sản  phụ khoa**
+    - KQ khám sản phụ khoa
+    - Phân loại KQ khám sản phụ khoa
+  - **E. Mắt**
+    - Kết quả khám thị lực  không kính (mắt phải)
+    - Kết quả khám thị lực không kính (mắt trái)
+    - Kết quả khám thị lực có kính (mắt phải)
+    - Kết quả khám thị lực có kính (mắt trái)
+    - Các bệnh về mắt (nếu có)
+    - Phân loại KQ khám mắt
+  - **F. Tai - Mũi - Họng**
+    - Kết quả khám thính lực tai trái (nói thường) (m)
+    - Kết quả khám thính lực tai trái (nói thầm) (m)
+    - Kết quả khám thính lực tai phải (nói thường) (m)
+    - Kết quả khám thính lực tai phải (nói thầm) (m)
+    - Các bệnh về tai mũi họng (nếu có)
+    - Phân loại KQ khám tai mũi họng
+  - **G. Răng - Hàm - Mặt**
+    - Kết quả khám hàm trên
+    - Kết quả khám hàm dưới
+    - Các bệnh về răng-hàm-mặt (nếu có)
+    - Phân loại KQ khám răng hàm mặt
+- **VI. KHÁM CẬN LÂM SÀNG**
+  - **Dịch vụ cận lâm sàng**
+    - Phân loại KQ khám răng hàm mặt
+  - **Tên chỉ số cận lâm sàng**
+    - Phân loại KQ khám răng hàm mặt
+  - **Ghi giá trị chỉ số cận lâm sàng**
+    - Phân loại KQ khám răng hàm mặt
+  - **Đơn vị đo chỉ số cận lâm sàng**
+    - Phân loại KQ khám răng hàm mặt
+  - **Mô tả kết quả chỉ số cận lâm sàng**
+    - Phân loại KQ khám răng hàm mặt
+  - **Kết luận chỉ số cận lâm sàng**
+    - Phân loại KQ khám răng hàm mặt
+- **VII. KẾT LUẬN**
+  - **Phân loại sức khỏe**
+    - Phân loại KQ khám răng hàm mặt
+  - **Kết luận bệnh**
+    - Phân loại KQ khám răng hàm mặt
+  - **Các bệnh tật (nếu có)**
+    - Phân loại KQ khám răng hàm mặt
+  - **Chữ ký số người kết luận**
+    - Phân loại KQ khám răng hàm mặt
+  - **Chữ ký số CSKB**
+    - Phân loại KQ khám răng hàm mặt
+
+---
+## 📄 từ đủ 18 đén dưới 60.xlsx
+**Sheet:** Du18tuoi trở lên (QD 1551)
+
+- **I. THÔNG TIN HÀNH CHÍNH**
+  - STT
+  - Họ và tên
+  - Giới tính
+  - Ngày sinh
+  - Tuổi
+  - Dân tộc
+  - CMND / CCCD / HC / Định danh công dân
+  - Ngày cấp
+  - Nơi cấp
+  - Nơi ở hiện tại
+  - Mã Tỉnh
+  - Mã Xã
+  - Điện thoại
+  - Nghề nghiệp
+  - Nơi công tác/học tập hiện tại
+  - Ngày bắt đầu vào làm việc tại đơn vị hiện nay
+  - Nghề, công việc trước đây
+  - Thời gian lam việc (năm)
+  - Thời gian lam việc (tháng)
+  - Từ ngày
+  - Đến ngày
+  - Nhóm máu
+  - Đối tượng khám định kỳ
+  - Nguồn kinh phí khám
+- **II. THÔNG TIN CHUNG VỀ CƠ SỞ KHÁM SỨC KHỎE**
+  - Lượt khám
+  - Mã cơ sở khám bệnh, chữa bệnh
+  - Mã cơ sở khám bệnh, chữa bệnh theo chuẩn GLN
+  - Ngày khám sức khỏe
+- **III. TIỀN SỬ BỆNH/ TẬT**
+  - **A. TIỀN SỬ  GIA ĐÌNH**
+    - Tiền sử bệnh, tật của gia đình
+  - **B.TIỀN SỬ BẢN THÂN**
+    - Tên bệnh tiền sử bản thân
+    - Năm phát hiện
+    - Tên bệnh nghề nghiệp
+    - Năm phát hiện bệnh nghề nghiệp
+  - **C. TIỀN SỬ SẢN PHỤ KHOA (Đối với nữ)**
+    - Bắt đầu thấy kinh nguyệt năm bao nhiêu tuổi
+    - Tính chất  kinh nguyệt
+    - Chu kỳ kinh (ngày)
+    - Lượng kinh (ngày)
+    - Đau bụng kinh
+    - Đã lập  gia đình
+    - PARA
+    - Đã từng mổ sản,   phụ khoa
+    - Số lần mổ sản, phụ khoa
+    - Ghi rõ mổ sản, phụ khoa
+    - Có đang áp dụng  BPTT không
+    - Ghi rõ BPTT đang  sử dụng
+- **IV. KHÁM THỂ LỰC**
+  - **Chiều cao (cm)**
+    - Ghi rõ BPTT đang  sử dụng
+  - **Cân nặng (kg)**
+    - Ghi rõ BPTT đang  sử dụng
+  - **Chỉ số BMI**
+    - Ghi rõ BPTT đang  sử dụng
+  - **Mạch (lần/phút)**
+    - Ghi rõ BPTT đang  sử dụng
+  - **Huyết áp**
+    - Ghi rõ BPTT đang  sử dụng
+  - **Phân loại thể lực**
+    - Ghi rõ BPTT đang  sử dụng
+- **V. KHÁM LÂM SÀNG**
+  - **A. Nội khoa**
+    - KQ Tuần hoàn
+    - Phân loại KQ Tuần hoàn
+    - KQ Hô hấp
+    - Phân loại KQ Hô hấp
+    - KQ khám Tiêu hóa
+    - Phân loại KQ khám Tiêu hóa
+    - KQ Khám Thận-Tiết niệu
+    - Phân loại KQ khám Thận-Tiết niệu
+    - KQ khám Nội tiết
+    - Phân loại KQ khám Nội tiết
+    - KQ khám Cơ - xương - khớp
+    - Phân loại KQ khám Cơ - xương - khớp
+    - KQ khám Thần kinh
+    - Phân loại KQ khám Thần kinh
+    - KQ khám Tâm thần
+    - Phân loại KQ khám Tâm thần
+  - **B. Ngoại  khoa**
+    - KQ khám ngoại khoa
+    - Phân loại KQ khám ngoại khoa
+    - KQ khám da liễu
+    - Phân loại KQ khám da liễu
+  - **C. Sản  phụ khoa**
+    - KQ khám sản phụ khoa
+    - Phân loại KQ khám sản phụ khoa
+  - **E. Mắt**
+    - Kết quả khám thị lực  không kính (mắt phải)
+    - Kết quả khám thị lực không kính (mắt trái)
+    - Kết quả khám thị lực có kính (mắt phải)
+    - Kết quả khám thị lực có kính (mắt trái)
+    - Các bệnh về mắt (nếu có)
+    - Phân loại KQ khám mắt
+  - **F. Tai - Mũi - Họng**
+    - Kết quả khám thính lực tai trái (nói thường) (m)
+    - Kết quả khám thính lực tai trái (nói thầm) (m)
+    - Kết quả khám thính lực tai phải (nói thường) (m)
+    - Kết quả khám thính lực tai phải (nói thầm) (m)
+    - Các bệnh về tai mũi họng (nếu có)
+    - Phân loại KQ khám tai mũi họng
+  - **G. Răng - Hàm - Mặt**
+    - Kết quả khám hàm trên
+    - Kết quả khám hàm dưới
+    - Các bệnh về răng-hàm-mặt (nếu có)
+    - Phân loại KQ khám răng hàm mặt
+- **VI. KHÁM CẬN LÂM SÀNG**
+  - **Dịch vụ cận lâm sàng**
+    - Phân loại KQ khám răng hàm mặt
+  - **Tên chỉ số cận lâm sàng**
+    - Phân loại KQ khám răng hàm mặt
+  - **Ghi giá trị chỉ số cận lâm sàng**
+    - Phân loại KQ khám răng hàm mặt
+  - **Đơn vị đo chỉ số cận lâm sàng**
+    - Phân loại KQ khám răng hàm mặt
+  - **Mô tả kết quả chỉ số cận lâm sàng**
+    - Phân loại KQ khám răng hàm mặt
+  - **Kết luận chỉ số cận lâm sàng**
+    - Phân loại KQ khám răng hàm mặt
+- **VII. KẾT LUẬN**
+  - **Phân loại sức khỏe**
+    - Phân loại KQ khám răng hàm mặt
+  - **Kết luận bệnh**
+    - Phân loại KQ khám răng hàm mặt
+  - **Các bệnh tật (nếu có)**
+    - Phân loại KQ khám răng hàm mặt
+  - **Chữ ký số người kết luận**
+    - Phân loại KQ khám răng hàm mặt
+  - **Chữ ký số CSKB**
+    - Phân loại KQ khám răng hàm mặt
+
+---

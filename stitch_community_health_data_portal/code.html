@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nhập liệu KSK Cộng Đồng</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Inter & JetBrains Mono -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#434655",
+                        "surface-container": "#eceef0",
+                        "surface-container-high": "#e6e8ea",
+                        "error-container": "#ffdad6",
+                        "background": "#f7f9fb",
+                        "surface": "#f7f9fb",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary": "#ab0b1c",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#6cf8bb",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#410004",
+                        "tertiary-fixed": "#ffdad7",
+                        "inverse-primary": "#b4c5ff",
+                        "on-background": "#191c1e",
+                        "on-surface": "#191c1e",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#ffecea",
+                        "on-secondary-fixed": "#002113",
+                        "on-primary-fixed": "#00174b",
+                        "surface-dim": "#d8dadc",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#004ac6",
+                        "surface-tint": "#0053db",
+                        "inverse-surface": "#2d3133",
+                        "outline": "#737686",
+                        "on-tertiary-fixed-variant": "#930013",
+                        "tertiary-fixed-dim": "#ffb3ad",
+                        "primary-fixed": "#dbe1ff",
+                        "on-secondary-container": "#00714d",
+                        "on-primary-container": "#eeefff",
+                        "tertiary-container": "#cf2c30",
+                        "primary-container": "#2563eb",
+                        "surface-bright": "#f7f9fb",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "surface-variant": "#e0e3e5",
+                        "outline-variant": "#c3c6d7",
+                        "on-primary": "#ffffff",
+                        "secondary": "#006c49",
+                        "secondary-fixed": "#6ffbbe",
+                        "secondary-fixed-dim": "#4edea3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "header-height": "56px",
+                        "edge-margin": "20px",
+                        "footer-height": "48px",
+                        "gutter": "12px",
+                        "row-height": "32px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "data-mono": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "headline-sm": ["18px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+            font-size: 20px;
+        }
+        /* Custom scrollbar for clinical density */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            height: 36px;
+            margin-bottom: 8px;
+        }
+        .form-label {
+            width: 180px;
+            flex-shrink: 0;
+        }
+        .input-standard {
+            height: 32px;
+            border: 1px solid #E2E8F0;
+            border-radius: 0.125rem;
+            padding: 0 8px;
+            font-size: 13px;
+            width: 100%;
+            background-color: #FFFFFF;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+        .input-standard:focus {
+            outline: none;
+            border-color: #004ac6;
+            box-shadow: 0 0 0 2px rgba(0, 74, 198, 0.1);
+        }
+        .btn-action {
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 12px;
+            gap: 4px;
+            font-weight: 600;
+            font-size: 12px;
+            border-radius: 0.125rem;
+            transition: all 0.1s ease-in-out;
+        }
+        .btn-action:active { transform: scale(0.97); }
+    </style>
+</head>
+<body class="flex flex-col text-on-surface">
+<!-- HEADER & TOOLBARS -->
+<header class="flex flex-col shrink-0 border-b border-outline-variant bg-surface-container-highest z-50">
+<!-- Row 1: App Title -->
+<div class="h-10 px-4 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+<h1 class="text-headline-sm font-bold text-primary tracking-tight">Nhập liệu KSK Cộng Đồng</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">account_circle</span>
+<span class="text-label-md">BS. Nguyễn Văn A</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1 hover:bg-surface-container-high rounded"><span class="material-symbols-outlined">settings</span></button>
+<button class="p-1 hover:bg-surface-container-high rounded"><span class="material-symbols-outlined">help</span></button>
+</div>
+</div>
+</div>
+<!-- Row 2: Toolbar 1 -->
+<div class="h-12 px-4 border-t border-outline-variant flex items-center gap-4 bg-surface-container-low">
+<div class="flex items-center gap-2 flex-1">
+<span class="text-label-md whitespace-nowrap">File mẫu Excel:</span>
+<input class="input-standard bg-surface-variant/50 max-w-md cursor-default text-on-surface-variant italic" readonly="" type="text" value="C:\Users\Admin\Documents\Mau_KSK_2024.xlsx"/>
+<button class="btn-action bg-surface-container-high text-on-surface border border-outline-variant hover:bg-surface-dim">
+<span class="material-symbols-outlined">folder_open</span>
+                    Chọn mẫu
+                </button>
+</div>
+<div class="flex items-center gap-2">
+<button class="btn-action bg-surface-container-high text-on-surface border border-outline-variant hover:bg-surface-dim">
+<span class="material-symbols-outlined">cloud_download</span>
+                    Sao lưu danh sách
+                </button>
+<button class="btn-action bg-surface-container-high text-on-surface border border-outline-variant hover:bg-surface-dim">
+<span class="material-symbols-outlined">cloud_upload</span>
+                    Nạp sao lưu
+                </button>
+<div class="w-px h-6 bg-outline-variant mx-1"></div>
+<button class="btn-action bg-secondary text-on-secondary hover:opacity-90">
+<span class="material-symbols-outlined">file_upload</span>
+                    Import Excel
+                </button>
+</div>
+</div>
+<!-- Row 3: Toolbar 2 -->
+<div class="h-12 px-4 border-t border-outline-variant flex items-center justify-between bg-surface-container-low">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="text-label-md font-bold whitespace-nowrap">Nhóm đối tượng:</span>
+<select class="input-standard w-48 py-0">
+<option>Dưới 6 tuổi</option>
+<option selected="">18-60 tuổi</option>
+<option>Người lái xe</option>
+<option>Khám sức khỏe định kỳ</option>
+</select>
+</div>
+<div class="flex items-center gap-2">
+<button class="btn-action bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container">
+<span class="material-symbols-outlined">save</span>
+                        Lưu bản ghi
+                    </button>
+<button class="btn-action bg-white border border-primary text-primary hover:bg-primary-fixed">
+<span class="material-symbols-outlined">edit</span>
+                        Cập nhật dòng chọn
+                    </button>
+<button class="btn-action bg-white border border-error text-error hover:bg-error-container">
+<span class="material-symbols-outlined">delete</span>
+                        Xóa dòng chọn
+                    </button>
+<button class="btn-action bg-white border border-outline-variant text-on-surface-variant hover:bg-surface-container-high">
+<span class="material-symbols-outlined">add</span>
+                        Thêm mới
+                    </button>
+<button class="btn-action bg-white border border-outline-variant text-on-surface-variant hover:bg-surface-container-high">
+<span class="material-symbols-outlined">restore</span>
+                        Mặc định
+                    </button>
+<button class="btn-action bg-white border border-outline-variant text-on-surface-variant hover:bg-surface-container-high">
+<span class="material-symbols-outlined">visibility_off</span>
+                        Ẩn/hiện danh sách
+                    </button>
+</div>
+</div>
+<div>
+<button class="btn-action bg-secondary text-on-secondary hover:opacity-90">
+<span class="material-symbols-outlined">download</span>
+                    Xuất Excel
+                </button>
+</div>
+</div>
+</header>
+<!-- MAIN CONTENT (Scrollable) -->
+<main class="flex-1 overflow-hidden flex flex-col">
+<!-- Tabs Bar -->
+<nav class="flex border-b border-outline-variant bg-white px-4">
+<button class="h-10 px-6 text-label-md border-b-2 border-primary text-primary font-bold transition-colors">
+                Hành chính
+            </button>
+<button class="h-10 px-6 text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors">
+                Thể lực
+            </button>
+<button class="h-10 px-6 text-label-md text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors">
+                Lâm sàng
+            </button>
+</nav>
+<!-- Scrollable Form Area -->
+<div class="flex-1 overflow-y-auto p-6 bg-background">
+<div class="max-w-container-max mx-auto bg-white border border-outline-variant rounded-lg p-6 shadow-sm">
+<div class="flex items-center gap-2 mb-6 pb-2 border-b border-outline-variant">
+<span class="material-symbols-outlined text-primary">person</span>
+<h2 class="text-headline-sm font-bold text-on-surface">Thông tin hành chính</h2>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-x-12 gap-y-1">
+<!-- Column 1 -->
+<div class="space-y-1">
+<div class="form-row">
+<label class="form-label text-label-md text-on-surface-variant">Họ tên <span class="text-error">*</span></label>
+<input class="input-standard" placeholder="VD: NGUYỄN VĂN A" type="text"/>
+</div>
+<div class="form-row">
+<label class="form-label text-label-md text-on-surface-variant">Ngày sinh <span class="text-error">*</span></label>
+<input class="input-standard" type="date"/>
+</div>
+<div class="form-row">
+<label class="form-label text-label-md text-on-surface-variant">Giới tính</label>
+<div class="flex gap-6 items-center">
+<label class="flex items-center gap-2 text-body-sm cursor-pointer">
+<input class="w-4 h-4 text-primary focus:ring-primary" name="gender" type="radio"/> Nam
+                                </label>
+<label class="flex items-center gap-2 text-body-sm cursor-pointer">
+<input class="w-4 h-4 text-primary focus:ring-primary" name="gender" type="radio"/> Nữ
+                                </label>
+</div>
+</div>
+<div class="form-row">
+<label class="form-label text-label-md text-on-surface-variant">CMND/CCCD</label>
+<input class="input-standard" placeholder="12 số hoặc 9 số" type="text"/>
+</div>
+<div class="form-row">
+<label class="form-label text-label-md text-on-surface-variant">Mã tỉnh</label>
+<select class="input-standard">
+<option>-- Chọn Tỉnh/TP --</option>
+<option value="01">Thành phố Hà Nội</option>
+<option value="79">Thành phố Hồ Chí Minh</option>
+<option value="48">Thành phố Đà Nẵng</option>
+</select>
+</div>
+</div>
+<!-- Column 2 -->
+<div class="space-y-1">
+<div class="form-row">
+<label class="form-label text-label-md text-on-surface-variant">Điện thoại</label>
+<input class="input-standard" placeholder="0xxx xxx xxx" type="tel"/>
+</div>
+<div class="form-row">
+<label class="form-label text-label-md text-on-surface-variant">Địa chỉ</label>
+<input class="input-standard" placeholder="Số nhà, tên đường..." type="text"/>
+</div>
+<div class="form-row">
+<label class="form-label text-label-md text-on-surface-variant">Nghề nghiệp</label>
+<input class="input-standard" placeholder="Công nhân, kỹ sư..." type="text"/>
+</div>
+<div class="form-row">
+<label class="form-label text-label-md text-on-surface-variant">Nơi công tác</label>
+<input class="input-standard" type="text"/>
+</div>
+<div class="form-row">
+<label class="form-label text-label-md text-on-surface-variant">Email</label>
+<input class="input-standard" placeholder="example@gmail.com" type="email"/>
+</div>
+</div>
+</div>
+<!-- Bento Card: Statistics Summary (Mockup) -->
+<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="p-4 rounded-lg bg-surface-container-low border border-outline-variant">
+<p class="text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Tổng bản ghi hôm nay</p>
+<p class="text-3xl font-bold text-primary">24</p>
+</div>
+<div class="p-4 rounded-lg bg-surface-container-low border border-outline-variant">
+<p class="text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Bản ghi hợp lệ</p>
+<p class="text-3xl font-bold text-secondary">22</p>
+</div>
+<div class="p-4 rounded-lg bg-surface-container-low border border-outline-variant">
+<p class="text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Chưa hoàn thiện</p>
+<p class="text-3xl font-bold text-error">2</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- DATAGRID (Bottom, Fixed 30vh) -->
+<section class="h-[307px] border-t border-outline-variant bg-white flex flex-col shrink-0">
+<!-- Grid Toolbar -->
+<div class="h-10 px-4 flex items-center justify-between bg-surface-container-low border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<span class="text-label-md font-bold text-on-surface uppercase tracking-tight">Danh sách bản ghi đã nhập</span>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="input-standard pl-8 w-64 text-body-sm" placeholder="Tìm kiếm theo tên, CMND..." type="text"/>
+</div>
+</div>
+<button class="btn-action bg-primary-fixed-dim text-on-primary-fixed hover:bg-primary-fixed">
+<span class="material-symbols-outlined">keyboard_double_arrow_up</span>
+                Nạp dòng vào form
+            </button>
+</div>
+<!-- Table -->
+<div class="flex-1 overflow-auto relative">
+<table class="w-full text-left border-collapse min-w-[1000px]">
+<thead class="sticky top-0 bg-surface-container-high z-10">
+<tr class="h-8 border-b border-outline-variant">
+<th class="px-3 text-label-md border-r border-outline-variant w-12 text-center">STT</th>
+<th class="px-3 text-label-md border-r border-outline-variant">Họ và tên</th>
+<th class="px-3 text-label-md border-r border-outline-variant w-24">Giới tính</th>
+<th class="px-3 text-label-md border-r border-outline-variant w-32">Ngày sinh</th>
+<th class="px-3 text-label-md border-r border-outline-variant w-40">CMND</th>
+<th class="px-3 text-label-md border-r border-outline-variant w-24">Mã tỉnh</th>
+<th class="px-3 text-label-md">Điện thoại</th>
+</tr>
+</thead>
+<tbody class="text-body-sm">
+<tr class="h-8 border-b border-outline-variant hover:bg-surface-container-low cursor-pointer bg-primary-fixed/20">
+<td class="px-3 border-r border-outline-variant text-center font-data-mono">1</td>
+<td class="px-3 border-r border-outline-variant font-semibold">NGUYỄN VĂN A</td>
+<td class="px-3 border-r border-outline-variant">Nam</td>
+<td class="px-3 border-r border-outline-variant font-data-mono">15/05/1990</td>
+<td class="px-3 border-r border-outline-variant font-data-mono">123456789012</td>
+<td class="px-3 border-r border-outline-variant text-center">01</td>
+<td class="px-3 font-data-mono">0912345678</td>
+</tr>
+<!-- Multiple Rows for demonstration -->
+<script>
+                        const rows = [
+                            ["NGUYỄN THỊ B", "Nữ", "22/10/1985", "987654321012", "79", "0987654321"],
+                            ["TRẦN VĂN C", "Nam", "01/01/1995", "456123789012", "48", "0905556667"],
+                            ["PHẠM MINH D", "Nam", "12/03/1992", "321654987012", "01", "0911223344"],
+                            ["LÊ HOÀNG E", "Nam", "08/08/1988", "159357486012", "79", "0933445566"],
+                            ["HOÀNG THỊ F", "Nữ", "25/12/1993", "753159486012", "01", "0944556677"]
+                        ];
+                        for(let i=0; i<rows.length; i++) {
+                            document.write(`
+                                <tr class="h-8 border-b border-outline-variant hover:bg-surface-container-low cursor-pointer transition-colors">
+                                    <td class="px-3 border-r border-outline-variant text-center font-data-mono">${i+2}</td>
+                                    <td class="px-3 border-r border-outline-variant font-semibold">${rows[i][0]}</td>
+                                    <td class="px-3 border-r border-outline-variant">${rows[i][1]}</td>
+                                    <td class="px-3 border-r border-outline-variant font-data-mono">${rows[i][2]}</td>
+                                    <td class="px-3 border-r border-outline-variant font-data-mono">${rows[i][3]}</td>
+                                    <td class="px-3 border-r border-outline-variant text-center">${rows[i][4]}</td>
+                                    <td class="px-3 font-data-mono">${rows[i][5]}</td>
+                                </tr>
+                            `);
+                        }
+                    </script>
+</tbody>
+</table>
+</div>
+<!-- Status Bar -->
+<footer class="h-8 px-4 flex items-center justify-between border-t border-outline-variant bg-surface-container-highest">
+<span class="text-label-sm text-on-surface-variant">Đang hiển thị 10/100 bản ghi</span>
+<div class="flex gap-4">
+<span class="text-label-sm text-on-surface-variant">Kết nối: <span class="text-secondary font-bold">Ổn định</span></span>
+<span class="text-label-sm text-on-surface-variant">Phiên bản: 2.4.0-release</span>
+</div>
+</footer>
+</section>
+<!-- Side NavBar (Mobile & Drawer Hidden for this Desktop View) -->
+<div class="hidden" id="side-nav">
+<!-- Predicted side nav component -->
+</div>
+<script>
+        // Simple micro-interactions
+        document.querySelectorAll('tbody tr').forEach(row => {
+            row.addEventListener('click', () => {
+                document.querySelectorAll('tbody tr').forEach(r => r.classList.remove('bg-primary-fixed/20'));
+                row.classList.add('bg-primary-fixed/20');
+            });
+        });
+    </script>
+</body></html>
